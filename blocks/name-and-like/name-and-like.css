@@ -1,0 +1,9 @@
+.name-and-like{
+    display: flex;
+    border:1px solid red;
+    width: 246px;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
