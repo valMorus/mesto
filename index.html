@@ -33,10 +33,14 @@
 
             </section>
 
-            <section class="elements"><!--грид-сетка-->
-                <div class="element"><!--Карточка флекс в колонку-->
-                    <img class="element__picture" src="./images/evgenii-pliusnin-Td0Z3uBW7T4-unsplash(1).jpg" alt="фото">
-                    <div class="name-and-like"><!--коробка с именем и сердецком-->
+            <section class="elements">
+                <!--грид-сетка-->
+                <div class="element">
+                    <!--Карточка флекс в колонку-->
+                    <img class="element__picture" src="./images/evgenii-pliusnin-Td0Z3uBW7T4-unsplash(1).jpg"
+                        alt="фото">
+                    <div class="name-and-like">
+                        <!--коробка с именем и сердецком-->
                         <h2 class="element__name">11 троллейбус</h2>
                         <img class="element__like" src="./images/like_default.png" alt="лайк">
                     </div>
@@ -99,6 +103,20 @@
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
+
+        <section class="popup">
+            <div class="popup__container">
+                <img class="popup__close" src="./images/Close Icon.png" alt="кнопка закрыть">
+                <form class="popup__content">
+                    <h2 class="popup__titile"> Редактировать профиль</h2>
+                    <input class="popup__name" name="name" type="text" placeholder="Имя" minlength="1" maxlength="15"
+                        required>
+                    <input class="popup__about" name="about" type="text" placeholder="Обо мне" minlength="1"
+                        maxlength="30" required>
+                    <button class="popup__submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
 
     </div>
 

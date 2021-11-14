@@ -1,0 +1,14 @@
+.popup__submit{
+    width: 358px;
+    height: 50px;
+    background-color: black;
+    font-family: Inter;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 22px;
+text-align: center;
+margin-top: 48px;
+margin-left: 36px;
+color:white;
+}
