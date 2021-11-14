@@ -25,7 +25,14 @@ popupOpenButtonElement.addEventListener('click', openPopup);
 
 popupCloseButtonElement.addEventListener('click', closePopup);
 
+function formSubmitHandler (evt) {
+    evt.preventDefault();
+    nameElement.textContent = nameInput.value;
+    jobElement.textContent = jobInput.value;
+    closePopup();
+}
 
+formElement.addEventListener('submit', formSubmitHandler);
 
 
 
