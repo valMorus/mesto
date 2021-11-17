@@ -4,6 +4,8 @@
     position: absolute;
     top: -32px;
     right: -32px;
+    border: none;
+    background-color: transparent;
 }
 
 .popup__close:hover {

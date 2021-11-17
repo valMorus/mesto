@@ -5,6 +5,7 @@
     height: 50px;
     box-sizing: border-box;
     justify-self: end;
+    background-color: transparent;
 }
 
 .profile__add-button:hover {
