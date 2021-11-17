@@ -1,10 +1,10 @@
-.name-and-button {
+.profile__name-and-button {
     display: flex;
     align-items: center;
 }
 
 @media screen and (max-width:320px) {
-    .name-and-button {
+    .profile__name-and-button {
         justify-content: center;
         margin-left: 30px;
     }

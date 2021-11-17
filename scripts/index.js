@@ -21,15 +21,15 @@ const closePopup = function () {
     popupElement.classList.remove('popup_is-opened')
 };
 
-popupOpenButtonElement.addEventListener('click', openPopup);
-
-popupCloseButtonElement.addEventListener('click', closePopup);
-
 function formSubmitHandler(evt) {
     evt.preventDefault();
     nameElement.textContent = nameInput.value;
     jobElement.textContent = jobInput.value;
     closePopup();
 }
+
+popupOpenButtonElement.addEventListener('click', openPopup);
+
+popupCloseButtonElement.addEventListener('click', closePopup);
 
 formElement.addEventListener('submit', formSubmitHandler);
