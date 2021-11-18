@@ -48,7 +48,7 @@
 
 @import url(../blocks/popup/__field/popup__field.css);
 
-@import url(../blocks/popup/__field/_job/popup__field_job.css);
+@import url(../blocks/popup/__field/_type/popup__field_type_job.css);
 
 @import url(../blocks/popup/__submit/popup__submit.css);
 
