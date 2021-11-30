@@ -53,3 +53,20 @@
 @import url(../blocks/popup/__close/popup__close.css);
 
 @import url(../blocks/popup/_is-opned/popup_is-opened.css);
+
+@import url(../blocks/popup-new-item/popup-new-item.css);
+
+@import url(../blocks/popup-new-item/__close/popup-new-item__close.css);
+
+@import url(../blocks/popup-new-item/__container/popup-new-item__container.css);
+
+@import url(../blocks/popup-new-item/__field/popup-new-item__field.css);
+
+@import url(../blocks/popup-new-item/__field/_type/popup-new-item__field_type_source.css);
+
+@import url(../blocks/popup-new-item/__submit/popup-new-item__submit.css);
+
+@import url(..//blocks/popup-new-item/__title/popup-new-item__title.css);
+
+@import url(../blocks/popup-new-item/_is-opened/popup-new-item_is-opened.css);
+

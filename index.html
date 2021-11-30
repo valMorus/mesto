@@ -34,6 +34,7 @@
 
             <section class="elements">
                 <!--грид-сетка-->
+                
                 <div class="element">
                     <!--Карточка флекс в колонку-->
                     <img class="element__picture" src="./images/evgenii-pliusnin-Td0Z3uBW7T4-unsplash(1).jpg"
@@ -119,6 +120,18 @@
                     <input class="popup__field popup__field_type_job" name="job" type="text" placeholder="Обо мне" minlength="1" maxlength="50"
                         required>
                     <button class="popup__submit" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="popup-new-item">
+            <div class="popup-new-item__container">
+                <button type="button" class="popup-new-item__close"><img src="./images/Close-Icon.svg" alt="закрыть"></button>
+                <form class="popup-new-item__content" name="new-item-form">
+                    <h2 class="popup-new-item__title">Новое место</h2>
+                    <input class="popup-new-item__field popup-new-item__field_type_name"  placeholder="Название" name="name" type="text" required>
+                    <input class="popup-new-item__field popup-new-item__field_type_source" placeholder="Ссылка на картинку" name="source" type="text" required>
+                    <button class="popup-new-item__submit" type="submit">Создать</button>
                 </form>
             </div>
         </section>
