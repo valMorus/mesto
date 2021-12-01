@@ -10,22 +10,22 @@ const nameInput = formElement.querySelector('.popup__field_type_name');
 const jobInput = formElement.querySelector('.popup__field_type_job');
 
 const openPopup = function () {
-    popupElement.classList.add('popup_is-opened')
-    if (popupElement.classList.contains('popup_is-opened')) {
-        nameInput.value = nameElement.textContent;
-        jobInput.value = jobElement.textContent;
-    }
+  popupElement.classList.add('popup_is-opened')
+  if (popupElement.classList.contains('popup_is-opened')) {
+    nameInput.value = nameElement.textContent;
+    jobInput.value = jobElement.textContent;
+  }
 };
 
 const closePopup = function () {
-    popupElement.classList.remove('popup_is-opened')
+  popupElement.classList.remove('popup_is-opened')
 };
 
 function formSubmitHandler(evt) {
-    evt.preventDefault();
-    nameElement.textContent = nameInput.value;
-    jobElement.textContent = jobInput.value;
-    closePopup();
+  evt.preventDefault();
+  nameElement.textContent = nameInput.value;
+  jobElement.textContent = jobInput.value;
+  closePopup();
 }
 
 popupOpenButtonElement.addEventListener('click', openPopup);
@@ -35,7 +35,7 @@ popupCloseButtonElement.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
 //написано 30.11
-// добавить карточку
+// кнопка добавить
 
 const popupNewElement = document.querySelector('.popup-new-item');
 const popupNewCloseButtonElement = popupNewElement.querySelector('.popup-new-item__close');
@@ -43,10 +43,10 @@ const popupNewOpenButtonElement = document.querySelector('.profile__add-button')
 
 const openPopupNew = function () {
   popupNewElement.classList.add('popup-new-item_is-opened')
- };
+};
 
- const closePopupNew = function () {
-    popupNewElement.classList.remove('popup-new-item_is-opened')
+const closePopupNew = function () {
+  popupNewElement.classList.remove('popup-new-item_is-opened')
 };
 
 popupNewOpenButtonElement.addEventListener('click', openPopupNew);
@@ -55,8 +55,7 @@ popupNewCloseButtonElement.addEventListener('click', closePopupNew);
 
 //темплейт
 
-const initialCards = [
-  {
+const initialCards = [{
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
   },
@@ -80,4 +79,52 @@ const initialCards = [
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-]; 
+];
+
+const containerEl = document.querySelector('.elements');
+const templateEl = document.querySelector('.template');
+
+function render() {
+  const card = initialCards.map((item, idx, arr) => {
+    return getItem(item);
+  });
+  containerEl.append(...card);
+};
+
+render();
+
+function getItem(item) {
+  const newItem = templateEl.content.cloneNode(true);
+  const headerEl = newItem.querySelector('.element__name');
+  const img = newItem.querySelector('.element__picture');
+  headerEl.textContent = item.name;
+  img.setAttribute('src', item.link);
+
+  return newItem;
+}
+
+//1.12
+// добавляем карточки по кнопке
+// добавляем инпуты
+const inputElName = document.querySelector('.popup-new-item__field_type_name');
+const inputElSource = document.querySelector('.popup-new-item__field_type_source');
+const createButtonEl = popupNewElement.querySelector('.popup-new-item__submit');
+
+function handleNew(evt) {
+  evt.preventDefault();
+  const inputTextName = inputElName.value;
+  const inputTextSource = inputElSource.value;
+
+  const newCard = getItem({
+    name: inputTextName,
+    link: inputTextSource
+  });
+  containerEl.prepend(newCard);
+  closePopupNew();
+  inputElName.value = '';
+  inputElSource.value = '';
+}
+
+popupNewElement.addEventListener('submit', handleNew);
+
+//удаление карточки

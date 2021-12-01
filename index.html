@@ -24,84 +24,30 @@
                 <div class="profile__info">
                     <div class="profile__name-and-button">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button type="button" class="profile__edit-button"><img src="./images/Edit-Button.svg" alt="редактировать"></button>
+                        <button type="button" class="profile__edit-button"><img src="./images/Edit-Button.svg"
+                                alt="редактировать"></button>
                     </div>
                     <p class="profile__job">Исследователь океана</p>>
                 </div>
-                <button type="button" class="profile__add-button"><img src="./images/Add-Button.svg" alt="добавить"></button>
+                <button type="button" class="profile__add-button"><img src="./images/Add-Button.svg"
+                        alt="добавить"></button>
 
             </section>
 
             <section class="elements">
                 <!--грид-сетка-->
-                
-                <div class="element">
-                    <!--Карточка флекс в колонку-->
-                    <img class="element__picture" src="./images/evgenii-pliusnin-Td0Z3uBW7T4-unsplash(1).jpg"
-                        alt="фото">
-                    <div class="element__name-and-like">
-                        <!--коробка с именем и сердецком-->
-                        <h2 class="element__name">11 троллейбус</h2>
-                        <button type="button" class="element__like"><img src="./images/like_default.svg"
-                                alt="лайк"></button>
+                <template class="template">
+                    <div class="element">
+                        <!--Карточка флекс в колонку-->
+                        <img class="element__picture" alt="фото">
+                        <div class="element__name-and-like">
+                            <!--коробка с именем и лайком-->
+                            <h2 class="element__name"></h2>
+                            <button type="button" class="element__like"><img src="./images/like_default.svg"
+                                    alt="лайк"></button>
+                        </div>
                     </div>
-                </div>
-
-                <div class="element">
-                    <!--Карточка флекс в колонку-->
-                    <img class="element__picture" src="./images/aolegov-juBs5rYD-d8-unsplash(1).jpg" alt="фото">
-                    <div class="element__name-and-like">
-                        <!--коробка с именем и сердецком-->
-                        <h2 class="element__name">Чкаловский район</h2>
-                        <button type="button" class="element__like"><img src="./images/like_default.svg"
-                                alt="лайк"></button>
-                    </div>
-                </div>
-
-                <div class="element">
-                    <!--Карточка флекс в колонку-->
-                    <img class="element__picture" src="./images/elina-sitnikova-0JutC-6Ub70-unsplash(1).jpg" alt="фото">
-                    <div class="element__name-and-like">
-                        <!--коробка с именем и сердецком-->
-                        <h2 class="element__name">Ельцин Центр</h2>
-                        <button type="button" class="element__like"><img src="./images/like_default.svg"
-                                alt="лайк"></button>
-                    </div>
-                </div>
-
-                <div class="element">
-                    <!--Карточка флекс в колонку-->
-                    <img class="element__picture" src="./images/mark-frost-nWk_WeF85YI-unsplash(1).jpg" alt="фото">
-                    <div class="element__name-and-like">
-                        <!--коробка с именем и сердецком-->
-                        <h2 class="element__name">река Исеть</h2>
-                        <button type="button" class="element__like"><img src="./images/like_default.svg"
-                                alt="лайк"></button>
-                    </div>
-                </div>
-
-                <div class="element">
-                    <!--Карточка флекс в колонку-->
-                    <img class="element__picture" src="./images/fedor-XwUFjQ-L4bE-unsplash(1).jpg" alt="фото">
-                    <div class="element__name-and-like">
-                        <!--коробка с именем и сердецком-->
-                        <h2 class="element__name">ВИЗ</h2>
-                        <button type="button" class="element__like"><img src="./images/like_default.svg"
-                                alt="лайк"></button>
-                    </div>
-                </div>
-
-                <div class="element">
-                    <!--Карточка флекс в колонку-->
-                    <img class="element__picture" src="./images/denis-vasiliev-l9Y7L6d5ZXs-unsplash(1).jpg" alt="фото">
-                    <div class="element__name-and-like">
-                        <!--коробка с именем и сердецком-->
-                        <h2 class="element__name">проспект Ленина</h2>
-                        <button type="button" class="element__like"><img src="./images/like_default.svg"
-                                alt="лайк"></button>
-                    </div>
-                </div>
-
+                </template>
             </section>
 
         </main>
@@ -115,10 +61,10 @@
                 <button type="button" class="popup__close"><img src="./images/Close-Icon.svg" alt="закрыть"></button>
                 <form class="popup__content" name="edit-form">
                     <h2 class="popup__title"> Редактировать профиль</h2>
-                    <input class="popup__field popup__field_type_name" name="name" type="text" placeholder="Имя" minlength="1" maxlength="45"
-                        required>
-                    <input class="popup__field popup__field_type_job" name="job" type="text" placeholder="Обо мне" minlength="1" maxlength="50"
-                        required>
+                    <input class="popup__field popup__field_type_name" name="name" type="text" placeholder="Имя"
+                        minlength="1" maxlength="45" required>
+                    <input class="popup__field popup__field_type_job" name="job" type="text" placeholder="Обо мне"
+                        minlength="1" maxlength="50" required>
                     <button class="popup__submit" type="submit">Сохранить</button>
                 </form>
             </div>
@@ -126,12 +72,15 @@
 
         <section class="popup-new-item">
             <div class="popup-new-item__container">
-                <button type="button" class="popup-new-item__close"><img src="./images/Close-Icon.svg" alt="закрыть"></button>
+                <button type="button" class="popup-new-item__close"><img src="./images/Close-Icon.svg"
+                        alt="закрыть"></button>
                 <form class="popup-new-item__content" name="new-item-form">
                     <h2 class="popup-new-item__title">Новое место</h2>
-                    <input class="popup-new-item__field popup-new-item__field_type_name"  placeholder="Название" name="name" type="text" required>
-                    <input class="popup-new-item__field popup-new-item__field_type_source" placeholder="Ссылка на картинку" name="source" type="text" required>
-                    <button class="popup-new-item__submit" type="submit">Создать</button>
+                    <input class="popup-new-item__field popup-new-item__field_type_name" placeholder="Название"
+                        name="name" type="text" required>
+                    <input class="popup-new-item__field popup-new-item__field_type_source"
+                        placeholder="Ссылка на картинку" name="source" type="text" required>
+                    <button class="popup__submit popup-new-item__submit" type="submit">Создать</button>
                 </form>
             </div>
         </section>
