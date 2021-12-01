@@ -34,7 +34,6 @@ popupCloseButtonElement.addEventListener('click', closePopup);
 
 formElement.addEventListener('submit', formSubmitHandler);
 
-//написано 30.11
 // кнопка добавить
 
 const popupNewElement = document.querySelector('.popup-new-item');
@@ -93,22 +92,30 @@ function render() {
 
 render();
 
+const inputElName = document.querySelector('.popup-new-item__field_type_name');
+const inputElSource = document.querySelector('.popup-new-item__field_type_source');
+const createButtonEl = popupNewElement.querySelector('.popup-new-item__submit');
+
 function getItem(item) {
   const newItem = templateEl.content.cloneNode(true);
   const headerEl = newItem.querySelector('.element__name');
   const img = newItem.querySelector('.element__picture');
+  
   headerEl.textContent = item.name;
   img.setAttribute('src', item.link);
+
+  const removeBtn = newItem.querySelector('.element__trash');
+  removeBtn.addEventListener('click', handleDelete);
+
+  const likeEl = newItem.querySelector('.element__like');
+  likeEl.addEventListener('click', toLike);
+
+  
 
   return newItem;
 }
 
-//1.12
 // добавляем карточки по кнопке
-// добавляем инпуты
-const inputElName = document.querySelector('.popup-new-item__field_type_name');
-const inputElSource = document.querySelector('.popup-new-item__field_type_source');
-const createButtonEl = popupNewElement.querySelector('.popup-new-item__submit');
 
 function handleNew(evt) {
   evt.preventDefault();
@@ -128,3 +135,15 @@ function handleNew(evt) {
 popupNewElement.addEventListener('submit', handleNew);
 
 //удаление карточки
+
+function handleDelete(event) {
+  const targetEl = event.target;
+  const listItem = targetEl.closest('.element');
+  listItem.remove();
+}
+
+// лайк
+
+function toLike(evt) {
+  evt.target.classList.toggle("element__like_active");
+}

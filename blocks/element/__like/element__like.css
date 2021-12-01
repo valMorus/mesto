@@ -3,6 +3,7 @@
     height: 19px;
     border:none;
     background-color:transparent;
+    padding-right: 30px;
 }
 
 .element__like:hover {
