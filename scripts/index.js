@@ -149,7 +149,7 @@ function toLike(evt) {
   evt.target.classList.toggle("element__like_active");
 }
 
-//еще раз попап с нуля
+//еще раз попап имг с нуля
 
 const popupImage = document.querySelector('.popup-image')
 
@@ -157,11 +157,10 @@ const popupImage = document.querySelector('.popup-image')
 function handlePopupImage(evt) {
   const targetImg = evt.target;
   const elementImg = targetImg.closest(".element");
-  const bigPicture = document.querySelector(".popup-image__img")
-  const bigPictureCaption = document.querySelector(".popup-image__name");
-  bigPictureCaption.textContent = elementImg.textContent;
-  bigPicture.src = elementImg.querySelector(".element__picture").src;
-  bigPicture.alt = elementImg.textContent;
+  const openImg = document.querySelector(".popup-image__img")
+  const openImgName = document.querySelector(".popup-image__name");
+  openImgName.textContent = elementImg.textContent;
+  openImg.src = elementImg.querySelector(".element__picture").src;
   openPopupImage();
 }
 
