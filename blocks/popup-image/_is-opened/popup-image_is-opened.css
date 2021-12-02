@@ -1,5 +1,5 @@
-.popup_is-opened{
-    visibility: visible;
+.popup-image_is-opened{
+   visibility: visible;
     opacity: 1;
     transition: opacity .5s linear .1s;
 }
