@@ -99,10 +99,10 @@ const createButtonEl = popupNewElement.querySelector('.popup-new-item__submit');
 function getItem(item) {
   const newItem = templateEl.content.cloneNode(true);
   const headerEl = newItem.querySelector('.element__name');
-  const img = newItem.querySelector('.element__picture');
-  
+  const imgEl = newItem.querySelector('.element__picture');
+
   headerEl.textContent = item.name;
-  img.setAttribute('src', item.link);
+  imgEl.setAttribute('src', item.link);
 
   const removeBtn = newItem.querySelector('.element__trash');
   removeBtn.addEventListener('click', handleDelete);
@@ -110,7 +110,8 @@ function getItem(item) {
   const likeEl = newItem.querySelector('.element__like');
   likeEl.addEventListener('click', toLike);
 
-  
+  imgEl.addEventListener('click', handlePopupImage);
+
 
   return newItem;
 }
@@ -147,3 +148,30 @@ function handleDelete(event) {
 function toLike(evt) {
   evt.target.classList.toggle("element__like_active");
 }
+
+//еще раз попап с нуля
+
+const popupImage = document.querySelector('.popup-image')
+
+
+function handlePopupImage(evt) {
+  const targetImg = evt.target;
+  const elementImg = targetImg.closest(".element");
+  const bigPicture = document.querySelector(".popup-image__img")
+  const bigPictureCaption = document.querySelector(".popup-image__name");
+  bigPictureCaption.textContent = elementImg.textContent;
+  bigPicture.src = elementImg.querySelector(".element__picture").src;
+  bigPicture.alt = elementImg.textContent;
+  openPopupImage();
+}
+
+const openPopupImage = function () {
+  popupImage.classList.add('popup-image_is-opened')
+};
+
+const closePopupImage = function () {
+  popupImage.classList.remove('popup-image_is-opened')
+};
+
+const popupImageCloseBtn = popupImage.querySelector('.popup-image__close');
+popupImageCloseBtn.addEventListener('click', closePopupImage);
