@@ -62,7 +62,7 @@
 
 @import url(../blocks/element/__trash/element__trash.css);
 
-@import url(../blocks/popup/__image-container/popup__image_container.css);
+@import url(../blocks/popup/__image-container/popup-image-container.css);
 
 @import url(../blocks/popup/__img/popup__img.css);
 
