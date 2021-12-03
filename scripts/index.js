@@ -21,7 +21,7 @@ const closePopup = function () {
   popupElement.classList.remove('popup_is-opened')
 };
 
-function formSubmitHandler(evt) {
+function handleformSubmit(evt) {
   evt.preventDefault();
   nameElement.textContent = nameInput.value;
   jobElement.textContent = jobInput.value;
@@ -32,7 +32,7 @@ popupOpenButtonElement.addEventListener('click', openPopup);
 
 popupCloseButtonElement.addEventListener('click', closePopup);
 
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', handleformSubmit);
 
 // кнопка добавить
 
@@ -161,6 +161,7 @@ function handlePopupImage(evt) {
   const openImgName = document.querySelector(".popup-image__name");
   openImgName.textContent = elementImg.textContent;
   openImg.src = elementImg.querySelector(".element__picture").src;
+  openImg.alt = elementImg.textContent;
   openPopupImage();
 }
 
