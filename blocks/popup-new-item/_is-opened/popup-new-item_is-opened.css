@@ -1,5 +1,0 @@
-.popup-new-item_is-opened{
-    visibility: visible;
-    opacity: 1;
-    transition: opacity .5s linear .1s;
-}
