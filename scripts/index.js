@@ -18,7 +18,8 @@ const inputElSource = document.querySelector('.popup__field_type_source');
 const newElCloseButton = popupNewElement.querySelector('.popup__close');
 const imageCloseButton = popupImage.querySelector('.popup__close');
 const buttonPfofileOpen = document.querySelector('.profile__edit-button');
-
+const openImg = document.querySelector(".popup__img")
+const openImgName = document.querySelector(".popup__image-name");
 
 const initialCards = [{
     name: 'Архыз',
@@ -54,7 +55,7 @@ function getItem(item) {
   const imgEl = newItem.querySelector('.element__picture');
 
   headerEl.textContent = item.name;
-  imgEl.setAttribute('src', item.link);
+  imgEl.src = item.link;
 
   const removeBtn = newItem.querySelector('.element__trash');
   removeBtn.addEventListener('click', handleDelete);
@@ -62,7 +63,16 @@ function getItem(item) {
   const likeEl = newItem.querySelector('.element__like');
   likeEl.addEventListener('click', toLike);
 
-  imgEl.addEventListener('click', handlePopupImage);
+  //попап с картинкой
+
+  imgEl.addEventListener('click', () => handlePopupImage(item));
+
+  function handlePopupImage(item) {
+    openImgName.textContent = item.name;
+    openImg.src = item.link;
+    openImg.alt = item.name;
+    openPopup(popupImage);
+  }
 
   return newItem;
 }
@@ -132,19 +142,6 @@ function handleformSubmit(evt) {
   nameElement.textContent = nameInput.value;
   jobElement.textContent = jobInput.value;
   closePopup(popupProfile);
-}
-
-//попап с картинкой
-
-function handlePopupImage(evt) {
-  const targetImg = evt.target;
-  const elementImg = targetImg.closest(".element");
-  const openImg = document.querySelector(".popup__img")
-  const openImgName = document.querySelector(".popup__image-name");
-  openImgName.textContent = elementImg.textContent;
-  openImg.src = elementImg.querySelector(".element__picture").src;
-  openImg.alt = elementImg.textContent;
-  openPopup(popupImage);
 }
 
 //закрыть попап
