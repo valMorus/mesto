@@ -67,14 +67,14 @@ function getItem(item) {
 
   imgEl.addEventListener('click', () => handlePopupImage(item));
 
-  function handlePopupImage(item) {
-    openImgName.textContent = item.name;
-    openImg.src = item.link;
-    openImg.alt = item.name;
-    openPopup(popupImage);
-  }
-
   return newItem;
+}
+
+function handlePopupImage(item) {
+  openImgName.textContent = item.name;
+  openImg.src = item.link;
+  openImg.alt = item.name;
+  openPopup(popupImage);
 }
 
 function render() {
