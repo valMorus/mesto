@@ -150,6 +150,14 @@ const closePopup = function (popupElement) {
   popupElement.classList.remove('popup_is-opened')
 }
 
+
+
+
+
+
+//слушалки
+
+
 profileCloseButton.addEventListener('click', () => {
   closePopup(popupProfile);
 });
@@ -170,5 +178,12 @@ popupNewOpenButtonElement.addEventListener('click', openPopupNew);
 
 buttonPfofileOpen.addEventListener('click', openPopupProfile);
 
+//esc
+
+document.addEventListener('keydown', function (event){
+  if (event.key === 'Escape') {
+    document.querySelector(".popup_is-opened").classList.remove("popup_is-opened");
+  }
+});
 
 render();
