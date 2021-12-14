@@ -1,6 +1,6 @@
 //console.log('Всё получится!')
 
-const popupElement = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
 const profileCloseButton = popupProfile.querySelector('.popup__close');
 const nameElement = document.querySelector('.profile__name');
@@ -103,8 +103,8 @@ function handleNew(evt) {
 
 //открыть попап
 
-const openPopup = function (popupElement) {
-  popupElement.classList.add('popup_is-opened')
+const openPopup = function (popup) {
+  popup.classList.add('popup_is-opened')
 }
 
 //открыть поап нового места
@@ -146,21 +146,9 @@ function handleformSubmit(evt) {
 
 //закрыть попап
 
-const closePopup = function (popupElement) {
-  popupElement.classList.remove('popup_is-opened')
+const closePopup = function (popup) {
+  popup.classList.remove('popup_is-opened')
 }
-
-//const closePopupbyOverlay = function (event) {
-//  if (event.target === event.currentTarget) {
-//    closePopup();
-//  }
-//}
-
-//const popups = document.querySelectorAll('.popup');
-//popups.forEach(function(popup){
-//  popup.addEventListener('click', closePopupbyOverlay)
-//});
-
 
 
 //слушалки
@@ -193,6 +181,19 @@ document.addEventListener('keydown', function (event) {
     document.querySelector(".popup_is-opened").classList.remove("popup_is-opened");
   }
 });
+
+
+
+
+Array.from(popups).forEach(popup => {
+  popup.addEventListener('click', function (event) {
+    if (event.target === event.currentTarget) {
+      closePopup(popup);
+    }
+  });
+})
+
+
 
 render();
 

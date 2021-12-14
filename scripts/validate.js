@@ -17,7 +17,7 @@ const hasInvalidInput = (inputs) => {
 }
 
 const toggleButtonError = (inputs, button, inactiveButtonClass) => {
-    console.log(hasInvalidInput(inputs))
+    
     if (hasInvalidInput(inputs)) {
         button.classList.add(inactiveButtonClass);
         button.disabled = true;
@@ -59,14 +59,6 @@ const enableValidation = ({ formSelector, ...rest }) => {
     });
 }
 
-enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
-});
 
 enableValidation({
     formSelector: '.popup__content',
