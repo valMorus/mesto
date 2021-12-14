@@ -150,8 +150,16 @@ const closePopup = function (popupElement) {
   popupElement.classList.remove('popup_is-opened')
 }
 
+//const closePopupbyOverlay = function (event) {
+//  if (event.target === event.currentTarget) {
+//    closePopup();
+//  }
+//}
 
-
+//const popups = document.querySelectorAll('.popup');
+//popups.forEach(function(popup){
+//  popup.addEventListener('click', closePopupbyOverlay)
+//});
 
 
 
@@ -180,10 +188,11 @@ buttonPfofileOpen.addEventListener('click', openPopupProfile);
 
 //esc
 
-document.addEventListener('keydown', function (event){
+document.addEventListener('keydown', function (event) {
   if (event.key === 'Escape') {
     document.querySelector(".popup_is-opened").classList.remove("popup_is-opened");
   }
 });
 
 render();
+
