@@ -63,12 +63,12 @@
                 <form class="popup__content" name="edit-form">
                     <h2 class="popup__title"> Редактировать профиль</h2>
                     <input id="user-name" class="popup__field popup__field_type_name" name="name" type="text" placeholder="Имя"
-                        minlength="2" maxlength="40">
+                        minlength="2" maxlength="40" required>
                         <span id="user-name-error" class="popup__error"></span>
                     <input id ="about"class="popup__field popup__field_type_job" name="job" type="text" placeholder="Обо мне"
-                        minlength="2" maxlength="400">
+                        minlength="2" maxlength="400" required>
                         <span id="about-error" class="popup__error"></span>
-                    <button class="popup__submit" type="submit">Сохранить</button>
+                    <button class="popup__submit popup__submit_disabled" disabled="disabled" type="submit">Сохранить</button>
                 </form>
             </div>
         </div>
@@ -79,12 +79,12 @@
                 <form class="popup__content" name="new-item-form">
                     <h2 class="popup__title">Новое место</h2>
                     <input class="popup__field popup__field_type_place-name" id ="name-card" placeholder="Название" name="name"
-                        type="text" minlength="2" maxlength="400">
+                        type="text" minlength="2" maxlength="400" required>
                         <span id="name-card-error" class="popup__error"></span>
                     <input class="popup__field popup__field_type_source" id ="link" placeholder="Ссылка на картинку" name="source"
-                        type="url">
+                        type="url" required>
                         <span id="link-error" class="popup__error"></span>
-                    <button class="popup__submit" type="submit">Создать</button>
+                    <button class="popup__submit popup__submit_disabled" disabled="disabled" type="submit">Создать</button>
                 </form>
             </div>
         </div>

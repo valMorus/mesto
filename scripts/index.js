@@ -183,10 +183,10 @@ document.addEventListener('keydown', function (event) {
 });
 
 
-
+//overlay
 
 Array.from(popups).forEach(popup => {
-  popup.addEventListener('click', function (event) {
+  popup.addEventListener('mousedown', function (event) {
     if (event.target === event.currentTarget) {
       closePopup(popup);
     }

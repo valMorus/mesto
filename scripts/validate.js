@@ -20,6 +20,7 @@ const toggleButtonError = (inputs, button, inactiveButtonClass) => {
     
     if (hasInvalidInput(inputs)) {
         button.classList.add(inactiveButtonClass);
+        button.setAttribute("disabled", "disabled")
         button.disabled = true;
     } else {
         button.classList.remove(inactiveButtonClass);
@@ -38,7 +39,7 @@ const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
 const setInputListeners = (form, { inputSelector, submitButtonSelector, inactiveButtonClass, ...rest }) => {
     const inputs = form.querySelectorAll(inputSelector);
     const submitButton = form.querySelector(submitButtonSelector);
-
+    //toggleButtonError(inputs, submitButton,inactiveButtonClass);
     inputs.forEach((input) => {
         input.addEventListener('input', () => {
             checkIfInputValid(form, input, rest);
