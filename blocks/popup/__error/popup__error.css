@@ -6,6 +6,6 @@
     line-height: 15px;
     margin-top: 5px;
     margin-left: 36px;
-
+    position: absolute;
     color: #FF0000;
 }
