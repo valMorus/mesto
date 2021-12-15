@@ -97,6 +97,7 @@ function handleNew(evt) {
   });
   containerEl.prepend(newCard);
   closePopup(popupNewElement);
+
   inputElName.value = '';
   inputElSource.value = '';
 }
@@ -130,8 +131,11 @@ function toLike(evt) {
 //редактировать профиль
 
 function openPopupProfile() {
-  nameInput.value = nameElement.textContent;
-  jobInput.value = jobElement.textContent;
+  if (nameInput.value === "" && jobInput.value === "" ){
+    nameInput.value = nameElement.textContent;
+    jobInput.value = jobElement.textContent;
+  }
+
   openPopup(popupProfile);
 }
 
@@ -193,7 +197,18 @@ Array.from(popups).forEach(popup => {
   });
 })
 
+//после добавления карточки и повторного открытия попапа кнопка снова неактивна
 
+function resetSubmit() {
+  const submitButton = popupNewElement.querySelector('.popup__submit')
+  
+  submitButton.disabled = true;
+
+  submitButton.classList.add('popup__submit_disabled')
+  openPopup(popupNewElement);
+}
+
+popupNewOpenButtonElement.addEventListener('click', resetSubmit);
 
 render();
 
