@@ -1,6 +1,6 @@
 //console.log('Всё получится!')
 
-const popupElement = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup');
 const popupProfile = document.querySelector('.popup_type_profile');
 const profileCloseButton = popupProfile.querySelector('.popup__close');
 const nameElement = document.querySelector('.profile__name');
@@ -97,14 +97,15 @@ function handleNew(evt) {
   });
   containerEl.prepend(newCard);
   closePopup(popupNewElement);
+
   inputElName.value = '';
   inputElSource.value = '';
 }
 
 //открыть попап
 
-const openPopup = function (popupElement) {
-  popupElement.classList.add('popup_is-opened')
+const openPopup = function (popup) {
+  popup.classList.add('popup_is-opened')
 }
 
 //открыть поап нового места
@@ -130,8 +131,11 @@ function toLike(evt) {
 //редактировать профиль
 
 function openPopupProfile() {
-  nameInput.value = nameElement.textContent;
-  jobInput.value = jobElement.textContent;
+  if (nameInput.value === "" && jobInput.value === "" ){
+    nameInput.value = nameElement.textContent;
+    jobInput.value = jobElement.textContent;
+  }
+
   openPopup(popupProfile);
 }
 
@@ -146,9 +150,13 @@ function handleformSubmit(evt) {
 
 //закрыть попап
 
-const closePopup = function (popupElement) {
-  popupElement.classList.remove('popup_is-opened')
+const closePopup = function (popup) {
+  popup.classList.remove('popup_is-opened')
 }
+
+
+//слушалки
+
 
 profileCloseButton.addEventListener('click', () => {
   closePopup(popupProfile);
@@ -170,5 +178,37 @@ popupNewOpenButtonElement.addEventListener('click', openPopupNew);
 
 buttonPfofileOpen.addEventListener('click', openPopupProfile);
 
+//esc
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    document.querySelector(".popup_is-opened").classList.remove("popup_is-opened");
+  }
+});
+
+
+//overlay
+
+Array.from(popups).forEach(popup => {
+  popup.addEventListener('mousedown', function (event) {
+    if (event.target === event.currentTarget) {
+      closePopup(popup);
+    }
+  });
+})
+
+//после добавления карточки и повторного открытия попапа кнопка снова неактивна
+
+function resetSubmit() {
+  const submitButton = popupNewElement.querySelector('.popup__submit')
+  
+  submitButton.disabled = true;
+
+  submitButton.classList.add('popup__submit_disabled')
+  openPopup(popupNewElement);
+}
+
+popupNewOpenButtonElement.addEventListener('click', resetSubmit);
 
 render();
+
