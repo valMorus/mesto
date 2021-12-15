@@ -17,7 +17,7 @@ const hasInvalidInput = (inputs) => {
 }
 
 const toggleButtonError = (inputs, button, inactiveButtonClass) => {
-    
+
     if (hasInvalidInput(inputs)) {
         button.classList.add(inactiveButtonClass);
         button.setAttribute("disabled", "disabled")
@@ -28,7 +28,10 @@ const toggleButtonError = (inputs, button, inactiveButtonClass) => {
     }
 }
 
-const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
+const checkIfInputValid = (form, input, {
+    inputErrorClass,
+    errorClass
+}) => {
     if (!input.validity.valid) {
         showError(form, input, input.validationMessage, errorClass, inputErrorClass);
     } else {
@@ -36,19 +39,27 @@ const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
     }
 }
 
-const setInputListeners = (form, { inputSelector, submitButtonSelector, inactiveButtonClass, ...rest }) => {
+const setInputListeners = (form, {
+    inputSelector,
+    submitButtonSelector,
+    inactiveButtonClass,
+    ...rest
+}) => {
     const inputs = form.querySelectorAll(inputSelector);
     const submitButton = form.querySelector(submitButtonSelector);
     //toggleButtonError(inputs, submitButton,inactiveButtonClass);
     inputs.forEach((input) => {
         input.addEventListener('input', () => {
             checkIfInputValid(form, input, rest);
-            toggleButtonError(inputs, submitButton,inactiveButtonClass);
+            toggleButtonError(inputs, submitButton, inactiveButtonClass);
         });
     });
 }
 
-const enableValidation = ({ formSelector, ...rest }) => {
+const enableValidation = ({
+    formSelector,
+    ...rest
+}) => {
     const forms = document.querySelectorAll(formSelector);
 
     forms.forEach((form) => {

@@ -131,7 +131,7 @@ function toLike(evt) {
 //редактировать профиль
 
 function openPopupProfile() {
-  if (nameInput.value === "" && jobInput.value === "" ){
+  if (nameInput.value === "" && jobInput.value === "") {
     nameInput.value = nameElement.textContent;
     jobInput.value = jobElement.textContent;
   }
@@ -153,30 +153,6 @@ function handleformSubmit(evt) {
 const closePopup = function (popup) {
   popup.classList.remove('popup_is-opened')
 }
-
-
-//слушалки
-
-
-profileCloseButton.addEventListener('click', () => {
-  closePopup(popupProfile);
-});
-
-newElCloseButton.addEventListener('click', () => {
-  closePopup(popupNewElement);
-});
-
-imageCloseButton.addEventListener('click', () => {
-  closePopup(popupImage);
-});
-
-formElement.addEventListener('submit', handleformSubmit);
-
-popupNewElement.addEventListener('submit', handleNew);
-
-popupNewOpenButtonElement.addEventListener('click', openPopupNew);
-
-buttonPfofileOpen.addEventListener('click', openPopupProfile);
 
 //esc
 
@@ -201,14 +177,34 @@ Array.from(popups).forEach(popup => {
 
 function resetSubmit() {
   const submitButton = popupNewElement.querySelector('.popup__submit')
-  
+
   submitButton.disabled = true;
 
   submitButton.classList.add('popup__submit_disabled')
   openPopup(popupNewElement);
 }
 
+
+profileCloseButton.addEventListener('click', () => {
+  closePopup(popupProfile);
+});
+
+newElCloseButton.addEventListener('click', () => {
+  closePopup(popupNewElement);
+});
+
+imageCloseButton.addEventListener('click', () => {
+  closePopup(popupImage);
+});
+
+formElement.addEventListener('submit', handleformSubmit);
+
+popupNewElement.addEventListener('submit', handleNew);
+
+popupNewOpenButtonElement.addEventListener('click', openPopupNew);
+
+buttonPfofileOpen.addEventListener('click', openPopupProfile);
+
 popupNewOpenButtonElement.addEventListener('click', resetSubmit);
 
 render();
-
