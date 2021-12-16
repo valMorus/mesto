@@ -20,6 +20,8 @@ const imageCloseButton = popupImage.querySelector('.popup__close');
 const buttonPfofileOpen = document.querySelector('.profile__edit-button');
 const openImg = document.querySelector(".popup__img")
 const openImgName = document.querySelector(".popup__image-name");
+const submitButton = popupNewElement.querySelector('.popup__submit');
+
 
 const initialCards = [{
     name: 'Архыз',
@@ -56,12 +58,13 @@ function getItem(item) {
 
   headerEl.textContent = item.name;
   imgEl.src = item.link;
+  imgEl.alt = item.name;
 
   const removeBtn = newItem.querySelector('.element__trash');
   removeBtn.addEventListener('click', handleDelete);
 
   const likeEl = newItem.querySelector('.element__like');
-  likeEl.addEventListener('click', toLike);
+  likeEl.addEventListener('click', handleLike);
 
   //попап с картинкой
 
@@ -105,7 +108,8 @@ function handleNew(evt) {
 //открыть попап
 
 const openPopup = function (popup) {
-  popup.classList.add('popup_is-opened')
+  popup.classList.add('popup_is-opened');
+  document.addEventListener('keydown', closeByEscape);
 }
 
 //открыть поап нового места
@@ -124,7 +128,7 @@ function handleDelete(event) {
 
 //лайк
 
-function toLike(evt) {
+function handleLike(evt) {
   evt.target.classList.toggle("element__like_active");
 }
 
@@ -151,17 +155,19 @@ function handleformSubmit(evt) {
 //закрыть попап
 
 const closePopup = function (popup) {
-  popup.classList.remove('popup_is-opened')
+  popup.classList.remove('popup_is-opened');
+  document.removeEventListener('keydown', closeByEscape);
 }
+
 
 //esc
 
-document.addEventListener('keydown', function (event) {
-  if (event.key === 'Escape') {
-    document.querySelector(".popup_is-opened").classList.remove("popup_is-opened");
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_is-opened');
+    closePopup(openedPopup);
   }
-});
-
+}
 
 //overlay
 
@@ -176,8 +182,6 @@ Array.from(popups).forEach(popup => {
 //после добавления карточки и повторного открытия попапа кнопка снова неактивна
 
 function resetSubmit() {
-  const submitButton = popupNewElement.querySelector('.popup__submit')
-
   submitButton.disabled = true;
 
   submitButton.classList.add('popup__submit_disabled')
